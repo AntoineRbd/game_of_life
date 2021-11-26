@@ -1,8 +1,15 @@
 from optparse import OptionParser
 
+from matplotlib import pyplot as plt
+
+from src.board.create_board import get_new_board
+
 def start_game(size=50) :
-    # generate_board = get_new_board()
-    pass
+    new_board = get_new_board(size)
+    
+    fig, ax = plt.subplots()
+    img = ax.imshow(new_board, interpolation='nearest')
+    plt.show()
 
 parser = OptionParser()
 usage = "usage: %prog [options] arg1 arg2"
