@@ -11,19 +11,21 @@ def start_game(size=50) :
     img = ax.imshow(new_board, interpolation='nearest')
     plt.show()
 
-parser = OptionParser()
-usage = "usage: %prog [options] arg1 arg2"
 
-parser.add_option("-s", "--size", type="int",
-                help="Numeric value of the board size",
-                dest="board_size")
+if __name__ == "__main__":
+    parser = OptionParser()
+    usage = "usage: %prog [options] arg1 arg2"
 
-options, arguments = parser.parse_args()
+    parser.add_option("-s", "--size", type="int",
+                    help="Numeric value of the board size",
+                    dest="board_size")
 
-if options.board_size:
-    print ("start game with size " + str(options.board_size))
-    start_game(size=options.board_size)
-    
-else :
-    print ("start game without option")
-    start_game()
+    options, arguments = parser.parse_args()
+
+    if options.board_size:
+        print ("start game with size " + str(options.board_size))
+        start_game(size=options.board_size)
+        
+    else :
+        print ("start game without option")
+        start_game()
