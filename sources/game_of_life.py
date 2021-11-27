@@ -1,15 +1,14 @@
 from optparse import OptionParser
 
-from matplotlib import pyplot as plt
+from src.game.game_of_life_game import play_game_of_life
 
-from src.board.create_board import get_new_board
+def start_game(size=50, rule='game_of_life') :
+    if rule == 'game_of_life' :
+        play_game_of_life(size)
 
-def start_game(size=50) :
-    new_board = get_new_board(size)
-    
-    fig, ax = plt.subplots()
-    img = ax.imshow(new_board, interpolation='nearest')
-    plt.show()
+    else:
+        print("Rule invalid")
+        return -1
 
 
 if __name__ == "__main__":
@@ -18,13 +17,25 @@ if __name__ == "__main__":
 
     parser.add_option("-s", "--size", type="int",
                     help="Numeric value of the board size",
-                    dest="board_size")
+                    dest="size")
+    
+    parser.add_option("-r", "--rule", type="int",
+                      help="Numeric value of rule number, default is game of life",
+                      dest="rule")
 
     options, arguments = parser.parse_args()
 
-    if options.board_size:
-        print ("start game with size " + str(options.board_size))
-        start_game(size=options.board_size)
+    if options.size and options.rule :
+        print("start game with size " + str(options.size) + " and rule n°" + str(options.rule))
+        start_game(size=options.size, rule=options.rule)
+
+    elif options.size:
+        print ("start game with size " + str(options.size))
+        start_game(size=options.size)
+
+    elif options.rule :
+        print("Start game with rule n°" + str(options.rule))
+        start_game(rule=options.rule)
         
     else :
         print ("start game without option")
