@@ -71,6 +71,29 @@ def basic_rule(frameNum, grid, size, img):
     img.set_data(newGrid)
     grid[:] = newGrid[:]
     return img,
+
+def basic_rule_test(grid, size):
+    newGrid = grid.copy()
+    
+    for i in range(size):
+        for j in range(size):
+            neighbour_top = get_neighbour_top(grid, size, i, j)
+            neighbour_center = get_neighbour_center(grid, size, i, j)
+            neighbour_bot = get_neighbour_bot(grid, size, i, j)
+
+            cell = grid[i][j]
             
+            neighbours_state = [
+                neighbour_top["neighbour_top_left"],
+                neighbour_top["neighbour_top_center"],
+                neighbour_top["neighbour_top_right"],
+                neighbour_center["neighbour_center_left"],
+                neighbour_center["neighbour_center_right"],
+                neighbour_bot["neighbour_bot_left"],
+                neighbour_bot["neighbour_bot_center"],
+                neighbour_bot["neighbour_bot_right"],
+            ]
+
+            newGrid[i][j] = nex_gen(neighbours_state=neighbours_state, cell=cell)
             
-            
+    return newGrid

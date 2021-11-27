@@ -12,5 +12,4 @@ def randomGrid(value):
 def get_new_board(size):
     grid = np.array([])
     grid = randomGrid(value=size)
-    
     return grid

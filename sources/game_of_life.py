@@ -1,5 +1,7 @@
 from optparse import OptionParser
 
+from matplotlib.pyplot import grid
+
 from src.game.game_of_life_game import play_game_of_life
 
 def start_game(size=50, rule='game_of_life') :
