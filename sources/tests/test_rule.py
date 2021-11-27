@@ -33,17 +33,17 @@ for i in range(size):
                 neighbours += 1
                 
         if cell == ON and (neighbours < 2) or (neighbours > 3):
-            cell_shoud_die = (i, j)
+            cell_should_die = (i, j)
             
         if cell == ON and (neighbours == 2 or neighbours == 3):
             cell_should_survive = (i, j)
             
         if cell == OFF and neighbours == 3:
-            cell_shoud_born = (i, j)
+            cell_should_born = (i, j)
 
 def test_rule_game_of_life_die():
     new_grid = basic_rule_test(grid, size)
-    assert new_grid[cell_shoud_die[0]][cell_shoud_die[1]] == OFF
+    assert new_grid[cell_should_die[0]][cell_should_die[1]] == OFF
 
 def test_rule_game_of_life_survive():
     new_grid = basic_rule_test(grid, size)
@@ -51,4 +51,4 @@ def test_rule_game_of_life_survive():
 
 def test_rule_game_of_life_die_born():
     new_grid = basic_rule_test(grid, size)
-    assert new_grid[cell_shoud_born[0]][cell_shoud_born[1]] == ON
+    assert new_grid[cell_should_born[0]][cell_should_born[1]] == ON
