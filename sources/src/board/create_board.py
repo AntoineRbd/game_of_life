@@ -12,3 +12,14 @@ def get_new_board(size):
     grid = np.array([])
     grid = randomGrid(value=size)
     return grid
+
+def get_new_board_1_D(size):
+    grid = np.zeros((size * size))
+    index = 0
+    if size % 2 == 0:
+        index = int(size / 2)
+    else: 
+        index = int(size / 2 + 1)
+
+    grid[index] = 255
+    return grid.reshape(size, size)

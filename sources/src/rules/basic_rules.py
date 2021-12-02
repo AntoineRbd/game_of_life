@@ -21,7 +21,7 @@ def get_neighbour_bot(grid, size, i, j):
             "neighbour_bot_right" : grid[(i + 1) % size][(j + 1) % size]
             }
 
-def nex_gen(neighbours_state, cell):
+def next_gen(neighbours_state, cell):
     neighbours = 0
 
     for k in neighbours_state:
@@ -63,7 +63,7 @@ def basic_rule(frameNum, grid, size, img):
                 neighbour_bot["neighbour_bot_right"],
             ]
 
-            newGrid[i][j] = nex_gen(neighbours_state=neighbours_state, cell=cell)
+            newGrid[i][j] = next_gen(neighbours_state=neighbours_state, cell=cell)
 
     img.set_data(newGrid)
     grid[:] = newGrid[:]

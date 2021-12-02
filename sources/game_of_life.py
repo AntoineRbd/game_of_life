@@ -1,13 +1,23 @@
 from optparse import OptionParser
 
-from src.game.game_of_life_game import play_game_of_life
+from numpy import format_parser
 
-def start_game(size=50, rule='game_of_life') :
+from src.game.game_of_life_game import play_game_of_life
+from src.game.game_1_D import play_1_D
+
+def get_bin(integer, n=8):
+    return format(integer, 'b').zfill(n)
+
+def start_game(size=100, rule='game_of_life') :
     if rule == 'game_of_life' :
         play_game_of_life(size)
 
+    elif 0 <= rule <= 256:
+        print(get_bin(rule))
+        play_1_D(rule=str(get_bin(rule)), size=size)
+
     else:
-        print("Rule invalid")
+        print("Invalid, rule must be into 0 and 256")
         return -1
 
 
