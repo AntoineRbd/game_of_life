@@ -15,7 +15,7 @@ for i in range(size):
         neighbour_bot = get_neighbour_bot(grid, size, i, j)
 
         cell = grid[i][j]
-        
+
         neighbours_state = [
             neighbour_top["neighbour_top_left"],
             neighbour_top["neighbour_top_center"],
@@ -31,13 +31,13 @@ for i in range(size):
         for k in neighbours_state:
             if k == ON:
                 neighbours += 1
-                
+
         if cell == ON and (neighbours < 2) or (neighbours > 3):
             cell_should_die = (i, j)
-            
+
         if cell == ON and (neighbours == 2 or neighbours == 3):
             cell_should_survive = (i, j)
-            
+
         if cell == OFF and neighbours == 3:
             cell_should_born = (i, j)
 

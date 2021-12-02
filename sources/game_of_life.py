@@ -1,7 +1,5 @@
 from optparse import OptionParser
 
-from matplotlib.pyplot import grid
-
 from src.game.game_of_life_game import play_game_of_life
 
 def start_game(size=50, rule='game_of_life') :
@@ -20,7 +18,7 @@ if __name__ == "__main__":
     parser.add_option("-s", "--size", type="int",
                     help="Numeric value of the board size",
                     dest="size")
-    
+
     parser.add_option("-r", "--rule", type="int",
                       help="Numeric value of rule number, default is game of life",
                       dest="rule")
@@ -38,7 +36,7 @@ if __name__ == "__main__":
     elif options.rule :
         print("Start game with rule n°" + str(options.rule))
         start_game(rule=options.rule)
-        
+
     else :
         print ("start game without option")
         start_game()

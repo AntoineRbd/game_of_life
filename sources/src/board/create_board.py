@@ -6,7 +6,6 @@ OFF = 0
 vals = [ON, OFF]
 
 def randomGrid(value):
- 
     return np.random.choice(vals, value*value, p=[0.2, 0.8]).reshape(value, value)
 
 def get_new_board(size):

@@ -9,5 +9,6 @@ def play_game_of_life(size):
 
     fig, ax = plt.subplots()
     img = ax.imshow(grid, interpolation='nearest')
-    ani = animation.FuncAnimation(fig, basic_rule, fargs=(grid, size, img, ), frames=10, interval=50, save_count=50)
+    anim = animation.FuncAnimation(fig, basic_rule, fargs=(grid, size, img, ), frames=10, interval=50, save_count=50)
+    anim = anim
     plt.show()
