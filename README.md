@@ -53,6 +53,7 @@ The game of life is a two-dimensional cellular automaton that follows a number o
 A stable structure is a structure that does not move over the generations, no more death or birth.
 
 Like for example the beehive:
+
 ![beehive](sources/assets/ruche.png)
 
 
@@ -60,12 +61,14 @@ Like for example the beehive:
 Some structures in the game of life have an oscillating character, they are repetitive. They repeat themselves every `n` generations.
 
 As for example the clock :
+
 ![clock](sources/assets/clock.png)
 
 - #### The vessels:
 The gliders are structures able, after a number of `n` generations to produce a copy of themselves, but shifted in the universe.
 
 Let's take as an example the glider, this structure repeats itself every four generations and moves diagonally.
+
 ![glider](sources/assets/planeur.png)
 
 
